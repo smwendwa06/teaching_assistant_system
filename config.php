@@ -15,14 +15,16 @@
 // }
 
 // <?php
-$host = "localhost";
+$host = "127.0.0.1"; // Using the IP instead of 'localhost' can sometimes bypass DNS lag
 $user = "root";
-$password = "";
+$password = ""; // Check if your database actually has a password! (XAMPP default is empty)
 $database = "users_db";
+$port = 3307; // Double-check this against the XAMPP Control Panel
 
-$conn = new mysqli($host, $user, $password, $database);
+$conn = new mysqli($host, $user, $password, $database, $port);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+echo "Connected successfully";
 ?>
